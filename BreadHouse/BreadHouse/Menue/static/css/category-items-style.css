@@ -1,0 +1,77 @@
+/* category-items-style.css */
+.products {
+    text-align: center;
+}
+
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* Product Item */
+.product-item {
+    width: 250px;
+    height: 350px;
+    margin: 0 1.5%;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #2b1812;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: 200px;
+    /* Maintained fixed height */
+    max-width: 250px;
+    /* Added max-width */
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Product Name */
+.product-name {
+    font-weight: bold;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+    /* Adjusted margin for better spacing */
+}
+
+/* Product Description */
+.product-description {
+    font-weight: bold;
+    color: #666;
+    text-align: center;
+    margin-top: 5px;
+    /* Adjusted margin for better spacing */
+}
+
+/* Product Price */
+.product-price {
+    margin-top: 5px;
+    /* Adjusted margin for better spacing */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .product-item {
+        width: 45%;
+        /* Adjusted width for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-item {
+        width: 100%;
+        /* Adjusted width for even smaller screens */
+        margin: 10px 0;
+        /* Adjusted margin for better spacing */
+    }
+}

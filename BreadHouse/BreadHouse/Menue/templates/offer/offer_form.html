@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Add Offer{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/offer-style.css' %}">
+
+<body>
+    <div class="container">
+        <h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Offer</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="create">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

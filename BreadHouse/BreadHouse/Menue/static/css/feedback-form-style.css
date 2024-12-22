@@ -1,0 +1,80 @@
+/* Styles for Feedback Form */
+
+/* Container */
+.feedback-container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.feedback-heading {
+    font-size: 24px;
+}
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* Form */
+.feedback-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Submit Button */
+.feedback-submit-button {
+    background-color: #2b1812;
+    /* Changed button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.feedback-submit-button:hover {
+    background-color: #2acb27d0;
+    /* Darker shade on hover */
+}
+
+/* Input Fields */
+.feedback-form input[type="text"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    font-size: 16px;
+    /* Adjust the font size */
+    outline: none;
+    /* Remove the default focus outline */
+}
+
+/* Placeholder Text Color */
+.feedback-form input[type="text"]::placeholder,
+.feedback-form textarea::placeholder {
+    color: #999;
+    /* Adjust the color of placeholder text */
+}
+
+/* Focus State */
+.feedback-form input[type="text"]:focus,
+.feedback-form textarea:focus {
+    border-color: #e64a19;
+    /* Change border color on focus */
+}
+
+/* Error State */
+.feedback-form input[type="text"].error,
+.feedback-form textarea.error {
+    border-color: rgb(0, 238, 255);
+    /* Change border color for error state */
+}

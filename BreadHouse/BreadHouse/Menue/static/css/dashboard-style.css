@@ -1,0 +1,57 @@
+.dashboard-nav {
+
+    padding: 20px;
+    text-align: center;
+}
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.dashboard-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin: 15px;
+    /* Changed to flex layout for responsiveness */
+    justify-content: center;
+    /* Center align items */
+}
+
+.dashboard-nav ul li {
+    margin-bottom: 10px;
+}
+
+.dashboard-nav-list {
+    margin-right: 20px;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .dashboard-nav ul {
+        flex-wrap: wrap;
+        display: inline-table;
+        /* Allow items to wrap */
+    }
+
+    .dashboard-nav-list {
+        margin-right: 10px;
+        /* Reduce margin for smaller screens */
+    }
+
+    .nav-item {
+        margin-right: 5px;
+        /* Reduce margin for smaller screens */
+    }
+}

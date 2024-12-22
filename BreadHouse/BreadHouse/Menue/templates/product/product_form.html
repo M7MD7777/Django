@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Add Product{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/product-form-style.css' %}">
+
+<body>
+    <div class="product-form-container">
+        <h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Product</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="product-current-image">
+                {% if form.instance.image %}
+                <img src="{{ form.instance.image.url }}" alt="Current Image" class="product-current-image">
+                {% else %}
+                <p>No image available</p>
+                {% endif %}
+            </div>
+            {{ form.as_p }}
+            <button type="submit" class="{% if form.instance.pk %}product-update{% else %}product-create{% endif %}">
+                {% if form.instance.pk %}Update{% else %}Create{% endif %}
+            </button>
+        </form>
+    </div>
+</body>
+{% endblock %}

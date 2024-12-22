@@ -1,0 +1,161 @@
+.new-item-list-container {
+    padding: 20px;
+}
+
+.new-item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.new-item-image {
+    width: 200px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.new-item-item {
+    border: 2px solid #2b1812;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+}
+
+h2 {
+    margin-left: 17px;
+}
+
+.new-item-details {
+    flex: 1;
+    font-size: large;
+    margin-top: 45px;
+
+}
+
+.new-item-actions {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.new-item-delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.new-item-delete-button:hover {
+    background-color: #c82333;
+}
+
+.new-item-create-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2b1812;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.new-item-create-link:hover {
+    background-color: #218838;
+}
+
+.new-item-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.new-item-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.new-item-modal-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.new-item-confirm-btn,
+.new-item-cancel-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.new-item-cancel-btn:hover {
+    background-color: #0056b3;
+}
+
+.new-item-confirm-btn:hover {
+    background-color: #ff0000;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .new-item-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .new-item-image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+
+    .new-item-details {
+        flex: 1;
+        margin-left: 5px;
+    }
+
+    .new-item-actions {
+        justify-content: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .new-item-delete-button {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .new-item-create-link {
+        margin-top: 10px;
+    }
+}

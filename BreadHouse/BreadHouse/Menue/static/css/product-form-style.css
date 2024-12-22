@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    display: block;
+    height: 70vh;
+}
+
+.product-form-container {
+    background-color: rgb(255, 243, 226);
+    ;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.product-form-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-form-container form {
+    display: block;
+}
+
+.product-form-container input[type="text"],
+.product-form-container input[type="file"],
+.product-form-container button,
+.product-form-container select,
+.product-form-container input[type="number"] {
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    font-size: 16px;
+}
+
+.product-form-container button.product-create,
+.product-form-container button.product-update {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-form-container button.product-create:hover,
+.product-form-container button.product-update:hover {
+    background-color: #2acb27d0;
+}
+
+.product-form-container .error-message {
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+.product-form-container .product-current-image {
+    width: 100%;
+    height: auto;
+
+    border-radius: 20px;
+    text-align: center;
+}
+
+.product-form-container button.product-create {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(249, 249, 249, 0.1);
+    background-color: #2b1812;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+@media screen and (max-width: 768px) {
+    .product-form-container {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-form-container {
+        width: 90%;
+        max-width: 90%;
+    }
+}

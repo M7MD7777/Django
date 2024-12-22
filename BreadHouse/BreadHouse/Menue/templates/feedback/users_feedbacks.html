@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}View Users Feedbacks{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/feedback-list-style.css' %}">
+
+<div class="container">
+    <h2>Feedbacks List</h2>
+    <ul>
+        {% for feedback in feedbacks %}
+        <p class="spliter"></p>
+        <li>
+            <p>{{ feedback.text }}</p>
+
+
+        </li>
+        <li class="user_details">
+            <p>Name: {{ feedback.user.user.username }}</p>
+            <p>Phone Number: {{ feedback.user.phone_number }}</p>
+            <p>Date and time: {{ feedback.when }}</p>
+
+        </li>
+
+        {% endfor %}
+    </ul>
+
+
+
+    {% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}New Items{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/new-item-list-style.css' %}">
+
+<section class="new-item-list-container">
+    <h2>New Items List</h2>
+    <ul class="new-item-list">
+        {% for new_item in new_items %}
+        <li class="new-item-item">
+            {% if new_item.product.image %}
+            <a href="{% url 'product_details' product_id=new_item.product.id %}">
+                <img src="{{ new_item.product.image.url }}" alt="{{ new_item.product.name }} Image"
+                    class="new-item-image">
+            </a>
+            {% endif %}
+
+            <div class="new-item-details">
+                <p><strong>Product:</strong> {{ new_item.product }}</p>
+            </div>
+            {% if user.is_authenticated %}
+            {% if request.user.profile.role == 'admin' %}
+            <div class="new-item-actions">
+                <form method="post" action="{% url 'new_item_delete' new_item.pk %}" class="new-item-delete-form">
+                    {% csrf_token %}
+                    <button type="button" class="new-item-delete-button">Delete</button>
+                </form>
+            </div>
+            {% endif %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% if user.is_authenticated %}
+    {% if request.user.profile.role == 'admin' %}
+    <a href="{% url 'new_item_create' %}" class="new-item-create-link">Add New Item</a>
+    {% endif %}
+    {% endif %}
+</section>
+
+<!-- The Modal -->
+<div id="deleteModal" class="new-item-modal">
+    <div class="new-item-modal-content">
+        <p>Are you sure you want to delete this product?</p>
+        <div class="new-item-modal-buttons">
+            <button class="new-item-confirm-btn" id="confirmDelete">Yes, Delete</button>
+            <button class="new-item-cancel-btn" id="cancelDelete">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () =>
+    {
+        const deleteButtons = document.querySelectorAll('.new-item-delete-button');
+        const deleteModal = document.getElementById('deleteModal');
+        const confirmDelete = document.getElementById('confirmDelete');
+        const cancelDelete = document.getElementById('cancelDelete');
+        let formToSubmit;
+
+        deleteButtons.forEach(button =>
+        {
+            button.addEventListener('click', (event) =>
+            {
+                event.preventDefault();
+                formToSubmit = event.target.closest('form');
+                deleteModal.style.display = 'flex';
+            });
+        });
+
+        confirmDelete.addEventListener('click', () =>
+        {
+            formToSubmit.submit();
+        });
+
+        cancelDelete.addEventListener('click', () =>
+        {
+            deleteModal.style.display = 'none';
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Offers{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/offer-list-style.css' %}">
+
+<body>
+    <div class="offer-container">
+        <h2 class="offer-heading">Offers List</h2>
+        <ul class="offer-list">
+            {% for offer in offers %}
+            <li class="offer-item">
+                {% if offer.product.image %}
+                <a href="{% url 'product_details' product_id=offer.product.id %}">
+                    <img src="{{ offer.product.image.url }}" alt="{{ offer.product.name }} Image" class="offer-image">
+                </a>
+                {% endif %}
+
+                <div class="offer-details">
+                    <p><strong class="offer-product-label">Product:</strong> {{ offer.product.name }}</p>
+                    <p><strong class="offer-old-price-label">Old Price:</strong> {{ offer.product.price }}</p>
+                    <p><strong class="offer-old-price-label">Discount:</strong> - {{ offer.discount }}%</p>
+                    <p><strong class="offer-new-price-label">New Price:</strong> {{ offer.new_price }}</p>
+                </div>
+                {% if user.is_authenticated %}
+                {% if request.user.profile.role == 'admin' %}
+                <div class="offer-actions">
+                    <a href="{% url 'offer_update' offer.pk %}" class="offer-update-button">Update</a>
+                    <form method="post" action="{% url 'offer_delete' offer.pk %}" class="offer-delete-form">
+                        {% csrf_token %}
+                        <button type="button" class="offer-delete-button">Delete</button>
+                    </form>
+                </div>
+                {% endif %}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% if user.is_authenticated %}
+        {% if request.user.profile.role == 'admin' %}
+        <a href="{% url 'offer_create' %}" class="offer-create-link">Add New Offer</a>
+        {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- The Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this offer?</p>
+            <div class="modal-buttons">
+                <button class="modal-confirm-btn" id="confirmDelete">Yes, Delete</button>
+                <button class="modal-cancel-btn" id="cancelDelete">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>
+        {
+            const deleteButtons = document.querySelectorAll('.offer-delete-button');
+            const deleteModal = document.getElementById('deleteModal');
+            const confirmDelete = document.getElementById('confirmDelete');
+            const cancelDelete = document.getElementById('cancelDelete');
+            let formToSubmit;
+
+            deleteButtons.forEach(button =>
+            {
+                button.addEventListener('click', (event) =>
+                {
+                    event.preventDefault();
+                    formToSubmit = event.target.closest('form');
+                    deleteModal.style.display = 'flex';
+                });
+            });
+
+            confirmDelete.addEventListener('click', () =>
+            {
+                formToSubmit.submit();
+            });
+
+            cancelDelete.addEventListener('click', () =>
+            {
+                deleteModal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+{% endblock %}

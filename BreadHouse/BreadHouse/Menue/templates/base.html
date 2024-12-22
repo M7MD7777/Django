@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BreadHouse{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base-style.css' %}">
+</head>
+
+<body class="base-body">
+
+    <header class="site-header">
+        <div class="full-header">
+            <div class="header-content">
+                <div class="logo-and-title">
+                    <a href="/"> <img src="{% static '..\media/background/BreadHouse_Logo.png' %}" alt="BreadHouse_Logo"
+                            class="site-logo"></a>
+                    <h1 class="site-title">Welcome to BreadHouse</h1>
+                </div>
+                <nav class="site-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a href="{% url 'feedback_create' %}" class="nav-link">Add Feedback</a>
+                        </li>
+                        <li class="nav-item"><a href="{% url 'feedback_list' %}" class="nav-link">View Feedbacks</a>
+                        </li>
+                        {% if request.user.profile.role == 'admin' %}
+                        <li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a></li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+                                {% csrf_token %}
+                                <button type="submit" class="logout-button">Logout</button>
+                            </form>
+                            <a href="#" class="logout-link"
+                                onclick="document.getElementById('logout-form').submit();">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 BreadHouse. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

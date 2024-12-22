@@ -1,0 +1,258 @@
+/* home-style.css */
+
+/* Category List Title */
+.home-category-list-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* Category List */
+.home-category-list {
+    list-style-type: none;
+    border: 1px solid #2b1812;
+    border-radius: 20px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+/* Category Item */
+.home-category-item {
+    width: calc(50% - 20px);
+    /* Two items per row with spacing */
+    margin: 10px;
+
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Category Image */
+.home-category-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+
+    /* Ensure the image covers the specified dimensions */
+}
+
+/* Category Details */
+.home-category-details {
+    margin-top: 10px;
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+
+    /* Allow details to grow */
+}
+
+/* Category Name */
+.home-category-name {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* No Categories Message */
+.home-no-categories {
+    color: #999;
+    font-style: italic;
+}
+
+/* New Items Title */
+.home-new-items-title {
+    font-size: 24px;
+    color: #333;
+    margin-top: 40px;
+    text-align: center;
+    /* Adjust spacing */
+}
+
+/* New Items */
+.home-new-items {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #2b1812;
+    border-radius: 20px;
+}
+
+/* New Item */
+.home-new-item {
+    width: calc(25% - 20px);
+    /* Four items per row with spacing */
+    margin: 10px;
+    text-align: center;
+}
+
+/* New Item Image */
+.home-new-item-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+/* New Item Name */
+.home-new-item-name {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+
+}
+
+/* View More Items Button */
+.home-view-more-items {
+    display: block;
+    text-align: center;
+    background-color: rgb(100, 89, 64);
+    ;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+
+    transition: background-color 0.3s;
+}
+
+.home-view-more-items:hover {
+    background-color: rgb(60, 54, 39);
+    ;
+}
+
+/* Trend Items Title */
+.home-trend-items-title {
+    font-size: 24px;
+    color: #333;
+    margin-top: 40px;
+    text-align: center;
+    /* Adjust spacing */
+}
+
+/* Trend Items */
+.home-trend-items {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #2b1812;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Trend Item */
+.home-trend-item {
+    width: calc(25% - 20px);
+    /* Four items per row with spacing */
+    margin: 10px;
+
+}
+
+/* Trend Item Image */
+.home-trend-item-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+/* Trend Item Name */
+.home-trend-item-name {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+
+}
+
+/* Offers Title */
+.home-offers-title {
+    font-size: 24px;
+    color: #333;
+    margin-top: 40px;
+    text-align: center;
+    /* Adjust spacing */
+}
+
+.home-offer-discount {
+    color: red;
+}
+
+
+
+/* Offers */
+.home-offers {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #2b1812;
+    border-radius: 20px;
+}
+
+/* Offer */
+.home-offer {
+    width: calc(25% - 20px);
+    /* Four items per row with spacing */
+    margin: 10px;
+    text-align: center;
+}
+
+/* Offer Image */
+.home-offer-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+
+}
+
+/* Offer Name */
+.home-offer-name {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+
+}
+
+.home-offer-price {
+    color: #000000;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Adjustments for tablets and smaller screens */
+    .home-category-item {
+        width: calc(50% - 20px);
+    }
+
+    .home-new-item,
+    .home-trend-item,
+    .home-offer {
+        width: calc(50% - 10px);
+        box-sizing: border-box;
+        /* Further reduced margin for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Adjustments for mobile phones */
+    .home-category-item {
+        width: calc(100% - 20px);
+
+    }
+
+    .home-new-item,
+    .home-trend-item,
+    .home-offer {
+        width: 100%;
+        height: auto;
+        /* Full width for smaller screens */
+    }
+}

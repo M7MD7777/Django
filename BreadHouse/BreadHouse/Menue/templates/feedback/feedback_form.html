@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Add Feedback{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/feedback-form-style.css' %}">
+
+<section class="feedback-container">
+    <h2 class="feedback-heading">Add Feedback</h2>
+    <form method="post" class="feedback-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="feedback-submit-button">Add Feedback</button>
+    </form>
+</section>
+{% endblock %}

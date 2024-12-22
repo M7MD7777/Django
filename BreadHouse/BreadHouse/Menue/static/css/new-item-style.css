@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Header styles */
+.header {
+    background-color: #333;
+    padding: 10px 0;
+    display: block;
+}
+
+.header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.header nav ul li {
+    display: block;
+    margin-right: 20px;
+}
+
+.header nav ul li:last-child {
+    margin-right: 0;
+}
+
+.header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.header nav ul li a:hover {
+    color: #dc3545;
+}
+
+
+
+
+.container {
+    background-color: rgb(255, 243, 226);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="file"],
+button,
+select,
+input[type="number"] {
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    font-size: 16px;
+}
+
+
+
+button.create:hover {
+    background-color: #2acb27d0;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+.site-content {
+    background-color: rgb(240, 227, 210);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+button.create {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(249, 249, 249, 0.1);
+    background-color: #2b1812;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        /* Adjust width for smaller screens */
+    }
+}

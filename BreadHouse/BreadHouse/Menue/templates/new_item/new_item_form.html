@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Add New Item{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/new-item-style.css' %}">
+
+<body>
+    <div class="container">
+        <h2>Add New Item</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="create">Add New Item</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

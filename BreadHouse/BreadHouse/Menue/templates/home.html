@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home-style.css' %}">
+
+<h2 class="home-category-list-title">Categories</h2>
+<ul class="home-category-list">
+    {% for category in categories %}
+    <li class="home-category-item">
+        <a href="{% url 'category_items' category.id %}">
+            <img src="{{ category.image.url }}" alt="{{ category.name }} Image" class="home-category-image">
+        </a>
+        <div class="home-category-details">
+            <p class="home-category-name"> {{ category.name }}</p>
+        </div>
+    </li>
+    {% empty %}
+    <li class="home-no-categories">No categories available.</li>
+    {% endfor %}
+</ul>
+
+<h2 class="home-new-items-title">New Items</h2>
+<div class="home-new-items">
+    {% for item in new_items %}
+    <div class="home-new-item">
+        <a href="{% url 'product_details' product_id=item.product.id %}">
+            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }} Image" class="home-new-item-image">
+        </a>
+        <p class="home-new-item-name">{{ item.product.name }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="home-view-more-button">
+    <a href="{% url 'new_item_list' %}" class="home-view-more-items">View More</a>
+</div>
+
+<h2 class="home-trend-items-title">Trend Items</h2>
+<div class="home-trend-items">
+    {% for item in trend_items %}
+    <div class="home-trend-item">
+        <a href="{% url 'product_details' product_id=item.product.id %}">
+            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }} Image" class="home-trend-item-image">
+        </a>
+        <p class="home-trend-item-name">{{ item.product.name }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="home-view-more-button">
+    <a href="{% url 'trend_item_list' %}" class="home-view-more-items">View More</a>
+</div>
+
+<h2 class="home-offers-title">Offers</h2>
+<div class="home-offers">
+    {% for offer in offers %}
+    <div class="home-offer">
+        <a href="{% url 'product_details' product_id=offer.product.id %}">
+            <img src="{{ offer.product.image.url }}" alt="{{ offer.product.name }} Image" class="home-offer-image">
+        </a>
+        <p class="home-offer-name">{{ offer.product.name }}</p>
+        <p class="home-offer-discount">- {{ offer.discount }}%</p>
+        <p class="home-offer-price">{{ offer.new_price }} SYP</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="home-view-more-button">
+    <a href="{% url 'offer_list' %}" class="home-view-more-items">View More</a>
+</div>
+
+{% endblock %}

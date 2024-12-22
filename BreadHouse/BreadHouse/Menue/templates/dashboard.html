@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/dashboard-style.css' %}">
+
+{% if user.is_authenticated %}
+<nav class="dashboard-nav">
+    {% if user.is_authenticated and request.user.profile.role == 'admin' %}
+    <ul class="dashboard-nav-list">
+        <li class="nav-item"><a href="{% url 'category_create' %}" class="nav-link">Add Category</a></li>
+        <li class="nav-item"><a href="{% url 'category_list' %}" class="nav-link">View Categories</a></li>
+    </ul>
+    <ul class="dashboard-nav-list">
+        <li class="nav-item"><a href="{% url 'product_create' %}" class="nav-link">Add Product</a></li>
+        <li class="nav-item"><a href="{% url 'product_list' %}" class="nav-link">View Products</a></li>
+    </ul>
+    <ul class="dashboard-nav-list">
+        <li class="nav-item"><a href="{% url 'new_item_create' %}" class="nav-link">Add New Item</a></li>
+        <li class="nav-item"><a href="{% url 'new_item_list' %}" class="nav-link">View New Items</a></li>
+    </ul>
+    <ul class="dashboard-nav-list">
+        <li class="nav-item"><a href="{% url 'trend_item_create' %}" class="nav-link">Add Trending Item</a></li>
+        <li class="nav-item"><a href="{% url 'trend_item_list' %}" class="nav-link">View Trending Items</a></li>
+    </ul>
+    <ul class="dashboard-nav-list">
+        <li class="nav-item"><a href="{% url 'offer_create' %}" class="nav-link">Add Offer</a></li>
+        <li class="nav-item"><a href="{% url 'offer_list' %}" class="nav-link">View Offers</a></li>
+    </ul>
+    <ul class="dashboard-nav-list">
+        <li class="nav-item"><a href="{% url 'users_feedbacks' %}" class="nav-link">Show Users Feedbacks</a></li>
+    </ul>
+    {% endif %}
+</nav>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,265 @@
+/* Base Styles */
+.base-body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('../../media/background/dashboard.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.base-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(7px);
+    z-index: -1;
+}
+
+.site-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    height: 100px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.site-title {
+    font-size: 24px;
+    color: #fff;
+}
+
+.site-nav {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-link,
+.logout-button,
+.logout-link {
+    color: #fff;
+    background-color: #2b1812;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.nav-link:hover,
+.logout-button:hover,
+.logout-link:hover {
+    background-color: rgb(100, 89, 64);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.site-content {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    min-height: calc(100vh - 100px);
+
+}
+
+.site-footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+    font-size: 12px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Home Page Styles */
+.category-list-title,
+.new-items-title,
+.trend-items-title,
+.offers-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.category-list,
+.new-items,
+.trend-items,
+.offers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.category-item,
+.new-item,
+.trend-item,
+.offer {
+    width: calc(25% - 20px);
+    margin: 10px;
+    border: 2px solid #2b1812;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.category-image,
+.new-item-image,
+.trend-item-image,
+.offer-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.category-details,
+.new-item-name,
+.trend-item-name,
+.offer-name {
+    margin-top: 10px;
+    flex-grow: 1;
+    color: #666;
+}
+
+.view-more-items {
+    display: block;
+    text-align: center;
+    background-color: #a7905c;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.view-more-items:hover {
+    background-color: #da4618;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+
+    /* Adjustments for tablets and smaller screens */
+    .header-content {
+        padding: 0 10px;
+    }
+
+    .site-logo {
+        height: 80px;
+        margin-right: 10px;
+    }
+
+    .site-title {
+        font-size: 20px;
+    }
+
+    .nav-list {
+        justify-content: flex-end;
+    }
+
+    .nav-item {
+        margin: 0 5px;
+    }
+
+    .site-content {
+        padding: 10px;
+        margin: 10px auto;
+        max-width: 95%;
+    }
+
+    .category-item,
+    .new-item,
+    .trend-item,
+    .offer {
+        width: calc(50% - 10px);
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Adjustments for mobile phones */
+    .site-logo {
+        height: 60px;
+    }
+
+    .site-title {
+        font-size: 18px;
+    }
+
+    .nav-link {
+        margin: 3px;
+    }
+
+    .logout-button,
+    .logout-link {
+        padding: 10px 15px;
+    }
+
+    .site-content {
+        padding: 5px;
+        margin: 5px auto;
+        max-width: 95%;
+    }
+
+    .category-item,
+    .new-item,
+    .trend-item,
+    .offer {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

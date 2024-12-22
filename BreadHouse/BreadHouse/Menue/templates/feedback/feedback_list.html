@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}View Feedbacks{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/feedback-list-style.css' %}">
+
+<div class="container">
+    <h2>Feedbacks List</h2>
+    <ul>
+        {% for feedback in feedbacks %}
+        <li>
+            {{ feedback.text }}
+            <form action="{% url 'feedback_delete' feedback.pk %}" method="post" class="delete-form">
+                {% csrf_token %}
+                <button class="delete-button" type="button">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <a class="create" href="{% url 'feedback_create' %}">Add Feedback</a>
+</div>
+
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to delete this feedback?</p>
+        <div class="modal-buttons">
+            <button class="confirm-btn" id="confirmDelete">Yes, Delete</button>
+            <button class="cancel-btn" id="cancelDelete">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () =>
+    {
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        const deleteModal = document.getElementById('deleteModal');
+        const confirmDelete = document.getElementById('confirmDelete');
+        const cancelDelete = document.getElementById('cancelDelete');
+        let formToSubmit;
+
+        deleteButtons.forEach(button =>
+        {
+            button.addEventListener('click', (event) =>
+            {
+                event.preventDefault();
+                formToSubmit = event.target.closest('form');
+                deleteModal.style.display = 'flex';
+            });
+        });
+
+        confirmDelete.addEventListener('click', () =>
+        {
+            formToSubmit.submit();
+        });
+
+        cancelDelete.addEventListener('click', () =>
+        {
+            deleteModal.style.display = 'none';
+        });
+    });
+</script>
+{% endblock %}
